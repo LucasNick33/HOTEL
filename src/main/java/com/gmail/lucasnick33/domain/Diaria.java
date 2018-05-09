@@ -30,6 +30,10 @@ public class Diaria implements Serializable{
 	private LocalDate data;
 
 
+        @ManyToMany
+        @JoinTable(name = "hospedagem",
+                joinColumns = @JoinColumn(name = "id_diaria"),
+                inverseJoinColumns = @JoinColumn(name = "id_pessoa"))
 	private Collection<PessoaFisica> hospedes;
 
 	public Integer getId() {
@@ -50,10 +54,6 @@ public class Diaria implements Serializable{
 
 	
 	
-	@ManyToMany
-	@JoinTable(name = "hospedagem",
-	joinColumns = @JoinColumn(name = "id_diaria"),
-	inverseJoinColumns = @JoinColumn(name = "id_pessoa"))
 	public Collection<PessoaFisica> getHospedes() {
 		return hospedes;
 	}
