@@ -12,91 +12,98 @@ import javax.persistence.InheritanceType;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;;
+import org.hibernate.validator.constraints.NotEmpty;
+
+;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TIPO")
 public abstract class Pessoa implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private Integer id;
-	private String nome;
-	private String email;
-	private Endereco endereco;
+    private Integer id;
+    private String nome;
+    private String email;
+    private Endereco endereco;
 
-	public Pessoa() {
+    public Pessoa() {
 
-	}
+    }
 
-	public Pessoa(Integer id, String nome, String email) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.email = email;
-	}
+    public Pessoa(Integer id, String nome, String email) {
+        super();
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+    }
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Integer getId() {
-		return id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer getId() {
+        return id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	@NotEmpty(message = "Nome:Nao pode estar vazio")
-	@Length(min = 5, max = 100, message = "Nome:Nao pode ter menos de 5 e mais de 100 caracteres")
-	public String getNome() {
-		return nome;
-	}
+    @NotEmpty(message = "Nome:Nao pode estar vazio")
+    @Length(min = 5, max = 100, message = "Nome:Nao pode ter menos de 5 e mais de 100 caracteres")
+    public String getNome() {
+        return nome;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	@Email
-	public String getEmail() {
-		return email;
-	}
+    @Email
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
+    public Endereco getEndereco() {
+        return endereco;
+    }
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pessoa other = (Pessoa) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Pessoa other = (Pessoa) obj;
+        if (id == null) {
+            if (other.id != null) {
+                return false;
+            }
+        } else if (!id.equals(other.id)) {
+            return false;
+        }
+        return true;
+    }
 
 }

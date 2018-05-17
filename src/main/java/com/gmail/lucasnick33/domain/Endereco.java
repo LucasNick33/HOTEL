@@ -1,4 +1,4 @@
-package br.com.junior.domain;
+package com.gmail.lucasnick33.domain;
 
 import java.io.Serializable;
 

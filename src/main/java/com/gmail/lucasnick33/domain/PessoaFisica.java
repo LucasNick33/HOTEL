@@ -9,69 +9,62 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import com.gmail.lucasnick33.domain.enums.Sexo;
 
-
 @Entity
 @DiscriminatorValue("PF")
 public class PessoaFisica extends Pessoa {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	
-	
-	
-	public PessoaFisica() {}
-	
-	
-	public PessoaFisica(String cpf, String rg, LocalDate dataNascimento, Sexo sexo) {
-		super();
-		Cpf = cpf;
-		Rg = rg;
-		this.dataNascimento = dataNascimento;
-		this.sexo = sexo;
-	}
+    public PessoaFisica() {
+    }
 
-	@CPF
-	private String Cpf;
-	
-	private String Rg;
-	
+    public PessoaFisica(String cpf, String rg, LocalDate dataNascimento, Sexo sexo) {
+        super();
+        Cpf = cpf;
+        Rg = rg;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
+    }
 
-	private LocalDate dataNascimento;
-	
-	private Sexo sexo;
+    @CPF
+    private String Cpf;
 
-	public String getCpf() {
-		return Cpf;
-	}
+    private String Rg;
 
-	public void setCpf(String cpf) {
-		Cpf = cpf;
-	}
+    private LocalDate dataNascimento;
 
-	public String getRg() {
-		return Rg;
-	}
+    private Sexo sexo;
 
-	public void setRg(String rg) {
-		Rg = rg;
-	}
+    public String getCpf() {
+        return Cpf;
+    }
 
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
-	}
+    public void setCpf(String cpf) {
+        Cpf = cpf;
+    }
 
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
+    public String getRg() {
+        return Rg;
+    }
 
-	public Sexo getSexo() {
-		return sexo;
-	}
+    public void setRg(String rg) {
+        Rg = rg;
+    }
 
-	public void setSexo(Sexo sexo) {
-		this.sexo = sexo;
-	}
-	
-	
-	
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public Sexo getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(Sexo sexo) {
+        this.sexo = sexo;
+    }
+
 }
